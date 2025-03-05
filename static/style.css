@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #007BFF;
+}
+
+form {
+    text-align: center;
+    margin: 20px 0;
+}
+
+input[type="file"] {
+    margin: 10px 0;
+}
+
+button {
+    padding: 10px 20px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.tab-button {
+    padding: 10px 20px;
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.tab-button.active {
+    background: #007BFF;
+    color: white;
+}
+
+.chart-container {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.chart-container.active {
+    display: block;
+}

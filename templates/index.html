@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competitive Study of Algorithms</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js -->
+</head>
+<body>
+    <h1>Competitive Study of Machine Learning Algorithms</h1>
+    <form id="uploadForm" method="POST" enctype="multipart/form-data">
+        <label for="dataset">Upload Dataset (CSV format):</label>
+        <input type="file" id="dataset" name="dataset" accept=".csv" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="results" style="margin-top: 20px;">
+        <h2>Results Overview</h2>
+
+        <!-- Tabs for switching between charts -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('barChartContainer')">Bar Chart</button>
+            <button class="tab-button" onclick="showTab('pieChartContainer')">Pie Chart</button>
+            <button class="tab-button" onclick="showTab('lineChartContainer')">Line Chart</button>
+            <button class="tab-button" onclick="showTab('radarChartContainer')">Radar Chart</button>
+        </div>
+
+        <!-- Chart Containers -->
+        <div id="barChartContainer" class="chart-container active">
+            <canvas id="barChart"></canvas>
+        </div>
+        <div id="pieChartContainer" class="chart-container">
+            <canvas id="pieChart"></canvas>
+        </div>
+        <div id="lineChartContainer" class="chart-container">
+            <canvas id="lineChart"></canvas>
+        </div>
+        <div id="radarChartContainer" class="chart-container">
+            <canvas id="radarChart"></canvas>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
