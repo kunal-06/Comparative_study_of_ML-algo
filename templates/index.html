@@ -3,44 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Competitive Study of Algorithms</title>
-    <link rel="stylesheet" href="/static/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js -->
+    <title>ML Algorithm Analysis Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <h1>Competitive Study of Machine Learning Algorithms</h1>
-    <form id="uploadForm" method="POST" enctype="multipart/form-data">
-        <label for="dataset">Upload Dataset (CSV format):</label>
-        <input type="file" id="dataset" name="dataset" accept=".csv" required>
-        <button type="submit">Submit</button>
-    </form>
-
-    <div id="results" style="margin-top: 20px;">
-        <h2>Results Overview</h2>
-
-        <!-- Tabs for switching between charts -->
-        <div class="tabs">
-            <button class="tab-button active" onclick="showTab('barChartContainer')">Bar Chart</button>
-            <button class="tab-button" onclick="showTab('pieChartContainer')">Pie Chart</button>
-            <button class="tab-button" onclick="showTab('lineChartContainer')">Line Chart</button>
-            <button class="tab-button" onclick="showTab('radarChartContainer')">Radar Chart</button>
-        </div>
-
-        <!-- Chart Containers -->
-        <div id="barChartContainer" class="chart-container active">
-            <canvas id="barChart"></canvas>
-        </div>
-        <div id="pieChartContainer" class="chart-container">
-            <canvas id="pieChart"></canvas>
-        </div>
-        <div id="lineChartContainer" class="chart-container">
-            <canvas id="lineChart"></canvas>
-        </div>
-        <div id="radarChartContainer" class="chart-container">
-            <canvas id="radarChart"></canvas>
-        </div>
+    <header>
+        <h1><i class="fas fa-brain"></i> ML Algorithm Comparison Dashboard</h1>
+    </header>
+    
+    <div class="container">
+        <section class="upload-section">
+            <div class="card">
+                <h2><i class="fas fa-upload"></i> Dataset Upload</h2>
+                <p class="description">Upload a CSV file to analyze performance metrics across algorithms with hyperparameter tuning</p>
+                
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <div class="file-input-container">
+                        <label for="dataset" class="file-label">
+                            <i class="fas fa-file-csv"></i>
+                            <span>Choose CSV File</span>
+                        </label>
+                        <input type="file" id="dataset" name="dataset" accept=".csv" required>
+                        <span class="file-name" id="file-name">No file chosen</span>
+                    </div>
+                    
+                    <button type="button" id="submitBtn" class="btn-primary">
+                        <i class="fas fa-chart-bar"></i> Start Analysis
+                    </button>
+                </form>
+            </div>
+        </section>
+        
+        <section class="results-section">
+            <div id="results" class="results">
+                <!-- Dashboard content will be populated here by JavaScript -->
+            </div>
+        </section>
     </div>
 
-    <script src="/static/script.js"></script>
+    <footer>
+        <p>&copy; 2023 ML Algorithm Analysis Dashboard</p>
+    </footer>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        // Display filename when a file is selected
+        document.getElementById('dataset').addEventListener('change', function() {
+            const fileName = this.files[0] ? this.files[0].name : 'No file chosen';
+            document.getElementById('file-name').textContent = fileName;
+        });
+    </script>
 </body>
 </html>
