@@ -13,6 +13,12 @@ from sklearn.svm import SVC, SVR
 from sklearn.neighbors import KNeighborsClassifier, KNeighborsRegressor
 from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
 from sklearn.naive_bayes import GaussianNB
+import os
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))  # Render assigns a port
+    app.run(host="0.0.0.0", port=port)
+
 
 app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = "uploads"
@@ -218,6 +224,7 @@ def index():
             print("No file in request")
             response = make_response(jsonify({"error": "No file uploaded"}), 400)
             response.headers['Content-Type'] = 'application/json'
+            print(response)
             return response
             
         print(f"File received: {file.filename}")
