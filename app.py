@@ -1,4 +1,3 @@
-import os
 import pandas as pd
 import numpy as np
 import time
@@ -14,15 +13,11 @@ from sklearn.neighbors import KNeighborsClassifier, KNeighborsRegressor
 from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
 from sklearn.naive_bayes import GaussianNB
 from flask_cors import CORS
+import os
 app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = "uploads"
 app.config["TIMEOUT"] = 300  # 5 minutes timeout for grid search
 CORS(app)
-
-if __name__ == "__main__":
-    import os
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
 
 # Ensure upload folder exists
 os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
@@ -347,5 +342,7 @@ def index():
 if __name__ == "__main__":
     os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
     app.run(debug=True, threaded=True)
+    port = int(os.environ.get("PORT", 5000))  # Render assigns a dynamic port
+    app.run(host="0.0.0.0", port=port) 
 
                    

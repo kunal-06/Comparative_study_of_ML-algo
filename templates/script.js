@@ -221,7 +221,7 @@ async function handleAnalysis() {
     try {
         console.log("Submitting form data...");
         // Send dataset to the backend
-        const response = await fetch('https://comparative-study-of-ml-algo.onrender.com/', {
+        const response = await fetch('/', {
             method: 'POST',
             body: formData,
         });
