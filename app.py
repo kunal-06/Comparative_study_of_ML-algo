@@ -17,8 +17,13 @@ from flask_cors import CORS
 app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = "uploads"
 app.config["TIMEOUT"] = 300  # 5 minutes timeout for grid search
-
 CORS(app)
+
+if __name__ == "__main__":
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
+
 # Ensure upload folder exists
 os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
 
