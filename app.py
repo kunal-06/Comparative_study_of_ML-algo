@@ -13,17 +13,12 @@ from sklearn.svm import SVC, SVR
 from sklearn.neighbors import KNeighborsClassifier, KNeighborsRegressor
 from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
 from sklearn.naive_bayes import GaussianNB
-import os
-
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))  # Render assigns a port
-    app.run(host="0.0.0.0", port=port)
-
-
+from flask_cors import CORS
 app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = "uploads"
 app.config["TIMEOUT"] = 300  # 5 minutes timeout for grid search
 
+CORS(app)
 # Ensure upload folder exists
 os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
 
