@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ML Algorithm Analysis Dashboard</title>
-    <link rel="stylesheet" href='/static/style.css'>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -48,7 +49,7 @@
         <p>&copy; Copyright by 23010101639</p>
     </footer>
     
-    <script src="/static/script.js"></script>
+     <script src="{{ url_for('static', filename='script.js') }}"></script>
     <script>
         // Display filename when a file is selected
         document.getElementById('dataset').addEventListener('change', function() {
